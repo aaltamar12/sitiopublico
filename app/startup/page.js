@@ -17,7 +17,18 @@ export default function StartUp({ inter, provider }) {
       <provider>
         <div
           className={`absolute inset-0 text-center ${style.backgroundAdMedia}`}
-        ></div>
+        >
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={style.videoBackground}
+            src="./video_background.mp4"
+          >
+            Tu navegador no soporta videos en HTML5.
+          </video>
+        </div>
 
         <div className={`absolute inset-0 text-center`}>
           <div className="mt-10 mb-10 pt-20 pb-20">

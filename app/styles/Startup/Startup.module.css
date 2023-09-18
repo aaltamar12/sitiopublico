@@ -1,19 +1,15 @@
-.backgroundRadial {
-    background: linear-gradient(to bottom, #4BC0C8, #C779D0, #FEAC5E);
-    background-size: 200% 200%; /* Ajusta el tamaño del gradiente para que cubra completamente el elemento */
-    animation: moveGradient 15s linear infinite, fadeInOut 10s ease-in-out infinite;
-    /* backdrop-filter: blur(100px); */
+.videoBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .backgroundAdMedia{
-  /* background: url("https://img.freepik.com/premium-vector/autumn-mountains-landscape-with-tree-silhouettes-river-sunset_148087-293.jpg"); */
-  background: url("../../../public/video_salida_short.gif");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   z-index: 0; 
 }
-
 
 .backgroundAdMedia::before {
   content: "";
