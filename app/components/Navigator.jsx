@@ -1,7 +1,7 @@
 import { isMobile } from "is-mobile";
 import WebNavigator from "./WebNavigatorTailwind";
 import MobileNavigator from "./MobileNavigator";
-import styles from "./Navigation.module.css";
+import styles from "../styles/Navigation/Navigation.module.css";
 
 const options = [
   {

@@ -22,7 +22,7 @@ export default function WebNavigatorTailwind({ options, styles }) {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <p className="font-bold text-inherit">ACME</p>
+          <p className="font-bold text-inherit">AdMedia</p>
         </NavbarBrand>
       </NavbarContent>
 

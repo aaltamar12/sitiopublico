@@ -6,7 +6,12 @@ module.exports = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        "startup-h1": "3rem",
+        "startup-small": "1.4rem",
+      },
+    },
   },
   plugins: [nextui()],
 };

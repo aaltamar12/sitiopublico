@@ -1,0 +1,18 @@
+.backgroundRadial {
+    background: linear-gradient(to bottom, #4BC0C8, #C779D0, #FEAC5E);
+    background-size: 200% 200%; /* Ajusta el tamaño del gradiente para que cubra completamente el elemento */
+    animation: moveGradient 15s linear infinite, fadeInOut 10s ease-in-out infinite;
+    /* backdrop-filter: blur(100px); */
+}
+
+@keyframes moveGradient {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
