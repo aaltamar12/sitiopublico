@@ -16,8 +16,10 @@ export default function StartUp({ inter, provider }) {
     <body className={inter.className}>
       <provider>
         <div
-          className={`absolute inset-0 text-center ${style.backgroundRadial}`}
-        >
+          className={`absolute inset-0 text-center ${style.backgroundAdMedia}`}
+        ></div>
+
+        <div className={`absolute inset-0 text-center`}>
           <div className="mt-10 mb-10 pt-20 pb-20">
             <div className="grid grid-rows-2 mt-10 mb-10 pt-10 pb-10">
               <div

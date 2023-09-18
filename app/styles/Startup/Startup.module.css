@@ -5,6 +5,27 @@
     /* backdrop-filter: blur(100px); */
 }
 
+.backgroundAdMedia{
+  /* background: url("https://img.freepik.com/premium-vector/autumn-mountains-landscape-with-tree-silhouettes-river-sunset_148087-293.jpg"); */
+  background: url("../../../public/video_salida_short.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0; 
+}
+
+
+.backgroundAdMedia::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
 @keyframes moveGradient {
     0% {
       background-position: 0% 0%;
