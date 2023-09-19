@@ -14,12 +14,12 @@ const kanit800 = Kanit({ weight: "800", subsets: ["latin"] });
 
 export default function StartUp({ inter, provider }) {
   return (
-    <body
-      className={inter.className}
-      style={{ marginTop: "env(safe-area-inset-top)" }}
-    >
+    <body className={inter.className}>
       <provider>
-        <div className="h-screen flex items-center justify-center bg-gray-600">
+        <div
+          className="h-screen flex flex-col items-center justify-center bg-gray-600"
+          style={{ marginTop: "env(safe-area-inset-top)" }}
+        >
           <div
             className={`absolute inset-0 text-center ${style.backgroundAdMedia}`}
           >
