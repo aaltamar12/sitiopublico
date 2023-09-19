@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       fontSize: {
         "startup-h1": "3rem",
-        "startup-small": "1.4rem",
+        "startup-small": "1.2rem",
       },
     },
   },

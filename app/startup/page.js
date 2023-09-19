@@ -1,6 +1,7 @@
 import { Kanit } from "next/font/google";
 import CustomButton from "../components/ui/Button";
 import style from "../styles/Startup/Startup.module.css";
+import Link from "next/link";
 
 const kanitItalic200 = Kanit({
   weight: "200",
@@ -18,52 +19,56 @@ export default function StartUp({ inter, provider }) {
       style={{ marginTop: "env(safe-area-inset-top)" }}
     >
       <provider>
-        <div
-          className={`absolute inset-0 text-center ${style.backgroundAdMedia}`}
-        >
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className={style.videoBackground}
-            src="./video_background.mp4"
+        <div className="h-screen flex items-center justify-center bg-gray-600">
+          <div
+            className={`absolute inset-0 text-center ${style.backgroundAdMedia}`}
           >
-            Tu navegador no soporta videos en HTML5.
-          </video>
-        </div>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className={style.videoBackground}
+              src="./video_background.mp4"
+            >
+              Tu navegador no soporta videos en HTML5.
+            </video>
+          </div>
 
-        <div className={`absolute inset-0 text-center`}>
-          <div className="mt-10 mb-10 pt-20 pb-20">
-            <div className="grid grid-rows-2 mt-10 mb-10 pt-10 pb-10">
-              <div
+          <div
+            className="grid grid-rows-2 text-center items-center justify-center gap-48"
+            style={{ zIndex: 1 }}
+          >
+            <div className="container">
+              <h1
                 className={`p-2 text-white text-startup-h1 ${kanit800.className}`}
               >
-                <h1>AdMedia</h1>
-              </div>
-              <div
-                className={`p-2 text-slate-200 text-startup-small ${kanitItalic200.className}`}
+                AdMedia
+              </h1>
+
+              <small
+                className={`p-1 text-slate-200 text-startup-small ${kanitItalic200.className}`}
               >
-                <small>Anunciar nunca fue tan facil</small>
-              </div>
+                Anunciar nunca fue tan facil
+              </small>
             </div>
-          </div>
-          <div className="grid grid-rows-2 pt-5 pb-5 items-center">
-            <div className="p-3 w-64 mx-auto">
-              <CustomButton
-                className={`text-xl text-gray-950 bg-white rounded-full h-14 ${kanit200.className}`}
-                size="lg"
-                fullWidth="true"
-                text="Empezar"
-              />
-            </div>
-            <div className="p-3 w-64 mx-auto">
+
+            <div className="w-64 lg:w-96">
               <CustomButton
                 className={`text-xl text-white bg-gradient-to-tr from-pink-500 to-orange-400 shadow-md rounded-full h-14 ${kanit200.className}`}
                 size="lg"
                 fullWidth="true"
-                text="Registrarse"
+                text="Empezar"
               />
+              <div className="p-2">
+                <Link href={"#"}>
+                  <small
+                    className={`text-white ${kanit500.className} underline`}
+                  >
+                    ¿Eres nuevo? Registrate
+                  </small>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
