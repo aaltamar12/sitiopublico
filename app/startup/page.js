@@ -14,9 +14,9 @@ const kanit800 = Kanit({ weight: "800", subsets: ["latin"] });
 
 export default function StartUp({ inter, provider }) {
   return (
-    <body className={inter.className}>
+    <body>
       <provider>
-        <div className="mt-safe pt-safe flex flex-col items-center justify-center bg-gray-600">
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-600">
           <div
             className={`absolute inset-0 text-center ${style.backgroundAdMedia}`}
           >
