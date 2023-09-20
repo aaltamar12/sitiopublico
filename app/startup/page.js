@@ -16,10 +16,7 @@ export default function StartUp({ inter, provider }) {
   return (
     <body className={inter.className}>
       <provider>
-        <div
-          className="h-screen mt-safe flex flex-col items-center justify-center bg-gray-600"
-          style={{ marginTop: "env(safe-area-inset-top)" }}
-        >
+        <div className="mt-safe pt-safe flex flex-col items-center justify-center bg-gray-600">
           <div
             className={`absolute inset-0 text-center ${style.backgroundAdMedia}`}
           >
