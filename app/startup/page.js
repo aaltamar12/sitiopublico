@@ -17,7 +17,7 @@ export default function StartUp({ inter, provider }) {
     <body className={inter.className}>
       <provider>
         <div
-          className="h-screen flex flex-col items-center justify-center bg-gray-600"
+          className="h-screen mt-safe flex flex-col items-center justify-center bg-gray-600"
           style={{ marginTop: "env(safe-area-inset-top)" }}
         >
           <div
