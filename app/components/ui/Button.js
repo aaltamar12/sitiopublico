@@ -20,7 +20,7 @@ export default function CustomButton({
       fullWidth={fullWidth}
       style={style}
       onClick={() => {
-        onPressExecute();
+        onPressExecute && onPressExecute();
       }}
     >
       <Link href={url}>{text}</Link>
