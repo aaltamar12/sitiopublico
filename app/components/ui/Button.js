@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@nextui-org/react";
+import Link from "next/link";
 
 export default function CustomButton({
   className,
@@ -7,6 +8,9 @@ export default function CustomButton({
   size,
   fullWidth,
   text,
+  url,
+  style,
+  onPressExecute,
 }) {
   return (
     <Button
@@ -14,8 +18,12 @@ export default function CustomButton({
       color={color}
       size={size}
       fullWidth={fullWidth}
+      style={style}
+      onClick={() => {
+        onPressExecute();
+      }}
     >
-      {text}
+      <Link href={url}>{text}</Link>
     </Button>
   );
 }

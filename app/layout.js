@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
           </Providers>
         </body>
       ) : (
-        <StartUp inter={inter} providers={Providers} />
+        <StartUp inter={inter} providers={Providers} children={children} />
       )}
     </html>
   );
