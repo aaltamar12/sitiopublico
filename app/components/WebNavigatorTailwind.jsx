@@ -11,9 +11,15 @@ import {
   Button,
 } from "@nextui-org/react";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
-export default function WebNavigatorTailwind({ options, styles }) {
+export default function WebNavigatorTailwind({
+  options,
+  styles,
+  signOutAction,
+}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
@@ -43,7 +49,15 @@ export default function WebNavigatorTailwind({ options, styles }) {
           <Link href="#">Login</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
+          <Button
+            as={Link}
+            color="primary"
+            href="#"
+            variant="flat"
+            onClick={() => {
+              signOutAction();
+            }}
+          >
             Sign Up
           </Button>
         </NavbarItem>

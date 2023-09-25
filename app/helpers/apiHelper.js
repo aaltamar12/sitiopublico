@@ -11,6 +11,10 @@ export async function getCookie(name) {
   return cookie;
 }
 
+export async function deleteCookie(name) {
+  cookies().delete(name);
+}
+
 export async function loginApi(username, password) {
   const requestOptions = {
     method: "POST",

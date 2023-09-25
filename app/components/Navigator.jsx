@@ -1,6 +1,5 @@
 import { isMobile } from "is-mobile";
 import WebNavigator from "./WebNavigatorTailwind";
-import MobileNavigator from "./MobileNavigator";
 import styles from "../styles/Navigation/Navigation.module.css";
 
 const options = [
@@ -14,12 +13,12 @@ const options = [
   },
 ];
 
-const navigatorType = !isMobile() ? (
-  <WebNavigator options={options} styles={styles} />
-) : (
-  <MobileNavigator options={options} styles={styles} />
-);
-
-export default function Navigator() {
-  return navigatorType;
+export default function Navigator({ signOutAction }) {
+  return (
+    <WebNavigator
+      options={options}
+      styles={styles}
+      signOutAction={signOutAction}
+    />
+  );
 }

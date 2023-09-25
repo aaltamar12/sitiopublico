@@ -2,9 +2,10 @@
 import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { Checkbox } from "@nextui-org/react";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import CustomButton from "../components/ui/Button";
 import InputIcon from "../components/ui/InputIcon";
-import { useRouter } from "next/navigation";
 
 import { getTokenFromCookie } from "../helpers/actions";
 import { loginApi } from "../helpers/apiHelper";
@@ -12,7 +13,6 @@ import { loginApi } from "../helpers/apiHelper";
 import LogoIcon from "../components/svg/logo.svg";
 import emailIcon from "../components/svg/email.svg";
 import passwordIcon from "../components/svg/password.svg";
-import { useEffect } from "react";
 
 const poppins700 = Poppins({ weight: "700", subsets: ["latin"] });
 const poppins400 = Poppins({ weight: "400", subsets: ["latin"] });
@@ -28,16 +28,16 @@ export default function Login({}) {
     }
   };
 
+  useEffect(() => {
+    redirectUnauthorized();
+  }, []);
+
   const login = async () => {
     const user = await loginApi("aaltamar12", "alfonso");
     if (user) {
       router.push("/");
     }
   };
-
-  useEffect(() => {
-    redirectUnauthorized();
-  }, []);
 
   return (
     <div
