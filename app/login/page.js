@@ -3,7 +3,11 @@ import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { Checkbox } from "@nextui-org/react";
 import CustomButton from "../components/ui/Button";
+import InputIcon from "../components/ui/InputIcon";
+
 import LogoIcon from "../components/svg/logo.svg";
+import emailIcon from "../components/svg/email.svg";
+import passwordIcon from "../components/svg/password.svg";
 
 const poppins700 = Poppins({ weight: "700", subsets: ["latin"] });
 const poppins400 = Poppins({ weight: "400", subsets: ["latin"] });
@@ -15,11 +19,7 @@ export default function Login({}) {
       style={{ backgroundColor: "#FFFFFF" }}
     >
       <div className="flex justify-center pb-9">
-        <Image
-          className="w-60 h-32"
-          src={LogoIcon}
-          alt="Follow us on Twitter"
-        />
+        <Image className="w-60 h-32" src={LogoIcon} alt="Logo AdMedia" />
       </div>
 
       <div
@@ -36,26 +36,34 @@ export default function Login({}) {
         <h1>Sign in for continue</h1>
       </div>
 
-      <div className="pb-6">
-        <input
-          className="w-full h-14"
-          style={{ borderRadius: "8px", border: "0.7px solid #D0D0D0" }}
-          placeholder="Usuario"
+      <div className="w-full pb-6">
+        <InputIcon
+          font={poppins400.className}
+          type="email"
+          boxWidth="w-full"
+          inputWidth="w-56"
+          placeholder="Escribe tu correo"
+          icon={emailIcon}
+          alt="Email icon"
         />
       </div>
 
       <div className="pb-8">
-        <input
-          className="w-full h-14"
-          style={{ borderRadius: "8px", border: "0.7px solid #D0D0D0" }}
+        <InputIcon
+          font={poppins400.className}
+          type="password"
+          boxWidth="w-full"
+          inputWidth="w-56"
           placeholder="Contraseña"
+          icon={passwordIcon}
+          alt="Password icon"
         />
       </div>
 
       <div className="grid grid-cols-2 pb-9">
         <div className="container">
           <Checkbox>
-            <small className="text-gray-400">Remember me</small>
+            <small className="text-gray-400">Recuerdame</small>
           </Checkbox>
         </div>
 

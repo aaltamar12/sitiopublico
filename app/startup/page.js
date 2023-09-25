@@ -84,7 +84,7 @@ export default function StartUp({ inter, provider, children }) {
           </div>
         </provider>
       ) : (
-        (console.log("ACA", redirectState), children)
+        children
       )}
     </body>
   );
