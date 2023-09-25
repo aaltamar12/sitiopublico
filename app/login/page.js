@@ -4,15 +4,41 @@ import { Poppins } from "next/font/google";
 import { Checkbox } from "@nextui-org/react";
 import CustomButton from "../components/ui/Button";
 import InputIcon from "../components/ui/InputIcon";
+import { useRouter } from "next/navigation";
+
+import { getTokenFromCookie } from "../helpers/actions";
+import { loginApi } from "../helpers/apiHelper";
 
 import LogoIcon from "../components/svg/logo.svg";
 import emailIcon from "../components/svg/email.svg";
 import passwordIcon from "../components/svg/password.svg";
+import { useEffect } from "react";
 
 const poppins700 = Poppins({ weight: "700", subsets: ["latin"] });
 const poppins400 = Poppins({ weight: "400", subsets: ["latin"] });
 
 export default function Login({}) {
+  const router = useRouter();
+
+  const redirectUnauthorized = async () => {
+    const token = await getTokenFromCookie();
+    if (token) {
+      console.log("ACA");
+      router.replace("/");
+    }
+  };
+
+  const login = async () => {
+    const user = await loginApi("aaltamar12", "alfonso");
+    if (user) {
+      router.push("/");
+    }
+  };
+
+  useEffect(() => {
+    redirectUnauthorized();
+  }, []);
+
   return (
     <div
       className="absolute inset-0 flex flex-col justify-center pl-10 pr-10"
@@ -80,8 +106,8 @@ export default function Login({}) {
           text="Ingresar"
           url="/login"
           style={{ borderRadius: "10px" }}
-          onPressExecute={() => {
-            setRedirectState(false);
+          onPressExecute={async () => {
+            await login();
           }}
         />
       </div>

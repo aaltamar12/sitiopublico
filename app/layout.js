@@ -1,10 +1,11 @@
+"use client";
 import { Inter } from "next/font/google";
+import { useEffect, useState } from "react";
 import { Providers } from "./providers";
-import Navigator from "./components/Navigator";
+import { getCookie } from "./helpers/apiHelper";
 import "./globals.css";
 import StartUp from "./startup/page";
 
-const isLogged = false;
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -13,20 +14,27 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const [isLogged, setIsLogged] = useState(false);
+
+  const getToken = async () => {
+    const token = await getCookie("token");
+    if (token) {
+      setIsLogged(true);
+    }
+  };
+
+  useEffect(() => {
+    getToken();
+  }, [isLogged]);
+
   return (
-    <html lang="en">
-      {isLogged ? (
-        <body className={inter.className}>
-          <Providers>
-            {isLogged && <Navigator />}
-            {isLogged && children}
-          </Providers>
-        </body>
-      ) : (
+    <html lang="es">
+      {!isLogged && (
         <StartUp inter={inter} providers={Providers}>
           {children}
         </StartUp>
       )}
+      {isLogged && children}
     </html>
   );
 }
