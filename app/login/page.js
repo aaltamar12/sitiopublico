@@ -11,7 +11,7 @@ const poppins400 = Poppins({ weight: "400", subsets: ["latin"] });
 export default function Login({}) {
   return (
     <div
-      className="flex flex-col justify-center min-h-screen pl-10 pr-10"
+      className="absolute inset-0 flex flex-col justify-center pl-10 pr-10"
       style={{ backgroundColor: "#FFFFFF" }}
     >
       <div className="flex justify-center pb-9">
