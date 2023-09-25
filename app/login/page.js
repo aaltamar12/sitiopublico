@@ -1,16 +1,39 @@
 "use client";
-import { Checkbox, Input } from "@nextui-org/react";
+import Image from "next/image";
+import { Poppins } from "next/font/google";
+import { Checkbox } from "@nextui-org/react";
 import CustomButton from "../components/ui/Button";
+import LogoIcon from "../components/svg/logo.svg";
+
+const poppins700 = Poppins({ weight: "700", subsets: ["latin"] });
+const poppins400 = Poppins({ weight: "400", subsets: ["latin"] });
 
 export default function Login({}) {
   return (
-    <div className="flex flex-col justify-center min-h-screen pl-10 pr-10 bg-gray-600">
-      <div className="text-3xl text-center">
+    <div
+      className="flex flex-col justify-center min-h-screen pl-10 pr-10"
+      style={{ backgroundColor: "#FFFFFF" }}
+    >
+      <div className="flex justify-center pb-9">
+        <Image
+          className="w-60 h-32"
+          src={LogoIcon}
+          alt="Follow us on Twitter"
+        />
+      </div>
+
+      <div
+        className={`text-3xl text-center ${poppins700.className}`}
+        style={{ color: "#393F45" }}
+      >
         <h1>Welcome Back</h1>
       </div>
 
-      <div className="pb-9 text-base text-center">
-        <h1>Inicia sesion para continuar</h1>
+      <div
+        className={`pb-9 text-base text-center ${poppins400.className}`}
+        style={{ opacity: "0.4" }}
+      >
+        <h1>Sign in for continue</h1>
       </div>
 
       <div className="pb-6">
@@ -31,17 +54,19 @@ export default function Login({}) {
 
       <div className="grid grid-cols-2 pb-9">
         <div className="container">
-          <Checkbox>Remember me</Checkbox>
+          <Checkbox>
+            <small className="text-gray-400">Remember me</small>
+          </Checkbox>
         </div>
 
-        <div className="container text-end">
+        <div className="container text-end text-blue-600">
           <small>Forgot password?</small>
         </div>
       </div>
 
       <div>
         <CustomButton
-          className={`text-xl text-white bg-gradient-to-tr from-pink-500 to-orange-400 shadow-md h-14`}
+          className={`text-xl text-white h-14 bg-gradient-to-r from-blue-600 to-indigo-500`}
           size="lg"
           fullWidth="true"
           text="Ingresar"
