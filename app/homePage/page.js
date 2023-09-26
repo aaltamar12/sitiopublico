@@ -14,7 +14,7 @@ export default function HomePage({ isLogged, setIsLogged }) {
 
   useEffect(() => {
     !isLogged && router.refresh();
-  }, [isLogged]);
+  }, [isLogged, router]);
 
   return <Navigator signOutAction={cerrarSesion} />;
 }

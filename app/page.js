@@ -32,7 +32,7 @@ export default function Index({ children }) {
     if (!isLogged) {
       setIsLoading(false);
     }
-  }, []);
+  }, [isLogged]);
 
   let contentToRender;
 

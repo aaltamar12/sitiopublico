@@ -20,17 +20,16 @@ const poppins400 = Poppins({ weight: "400", subsets: ["latin"] });
 export default function Login({}) {
   const router = useRouter();
 
-  const redirectUnauthorized = async () => {
-    const token = await getTokenFromCookie();
-    if (token) {
-      console.log("ACA");
-      router.replace("/");
-    }
-  };
-
   useEffect(() => {
+    const redirectUnauthorized = async () => {
+      const token = await getTokenFromCookie();
+      if (token) {
+        console.log("ACA");
+        router.replace("/");
+      }
+    };
     redirectUnauthorized();
-  }, []);
+  }, [router]);
 
   const login = async () => {
     const user = await loginApi("aaltamar12", "alfonso");
