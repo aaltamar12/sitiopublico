@@ -11,6 +11,8 @@ const nextConfig = {
   distDir: "out",
   env: {
     BACKEND_URL: process.env.BACKEND_URL,
+    SECRET_KEY: process.env.SECRET_KEY,
+    IV_KEY: process.env.IV_KEY,
   },
 };
 

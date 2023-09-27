@@ -3,12 +3,13 @@ import "../globals.css";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { Checkbox } from "@nextui-org/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import CustomButton from "../components/ui/Button";
 import InputIcon from "../components/ui/InputIcon";
 
 import { getTokenFromCookie } from "../helpers/actions";
+import { encryptData } from "../helpers/cryptoHelper";
 import { loginApi } from "../helpers/apiHelper";
 
 import LogoIcon from "../components/svg/logo.svg";
@@ -21,6 +22,11 @@ const poppins400 = Poppins({ weight: "400", subsets: ["latin"] });
 export default function Login({}) {
   const router = useRouter();
   const searchParams = useSearchParams();
+
+  const [formLogin, setFormLogin] = useState({
+    username: "",
+    password: "",
+  });
 
   useEffect(() => {
     const redirectUnauthorized = async () => {
@@ -37,7 +43,8 @@ export default function Login({}) {
   }, [router]);
 
   const login = async () => {
-    const user = await loginApi("aaltamar12", "alfonso");
+    const { username, password } = formLogin;
+    const user = await loginApi(username, password);
     if (user) {
       router.push("/");
     }
@@ -73,6 +80,12 @@ export default function Login({}) {
           boxWidth="w-full"
           inputWidth="w-56"
           placeholder="Escribe tu correo"
+          setValue={(value) => {
+            setFormLogin({
+              ...formLogin,
+              username: value,
+            });
+          }}
           icon={emailIcon}
           alt="Email icon"
         />
@@ -85,6 +98,13 @@ export default function Login({}) {
           boxWidth="w-full"
           inputWidth="w-56"
           placeholder="Contraseña"
+          setValue={async (value) => {
+            setFormLogin({
+              ...formLogin,
+              password: await encryptData(value),
+            });
+            console.log(formLogin);
+          }}
           icon={passwordIcon}
           alt="Password icon"
         />

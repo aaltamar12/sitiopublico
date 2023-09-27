@@ -10,6 +10,7 @@ export default function InputIcon({
   boxWidth,
   inputWidth,
   placeholder,
+  setValue,
   icon,
   alt,
 }) {
@@ -17,7 +18,10 @@ export default function InputIcon({
 
   const handleInputChange = (event) => {
     const newValue = event.target.value;
-    !newValue && setActivatePlaceholder(true);
+    setValue(newValue);
+
+    const validateValue = !newValue ? true : false;
+    setActivatePlaceholder(validateValue);
   };
 
   return (
