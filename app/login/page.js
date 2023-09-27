@@ -24,6 +24,12 @@ export default function Login({ searchParams }) {
   useEffect(() => {
     const redirectUnauthorized = async () => {
       const token = await getTokenFromCookie();
+      console.log(
+        token,
+        !token,
+        searchParams.redirect,
+        searchParams.redirect !== "true"
+      );
 
       if (!token && searchParams.redirect !== "true") {
         router.push("/");
