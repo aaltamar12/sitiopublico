@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { Checkbox } from "@nextui-org/react";
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import CustomButton from "../components/ui/Button";
 import InputIcon from "../components/ui/InputIcon";
 
@@ -18,20 +18,17 @@ import passwordIcon from "../components/svg/password.svg";
 const poppins700 = Poppins({ weight: "700", subsets: ["latin"] });
 const poppins400 = Poppins({ weight: "400", subsets: ["latin"] });
 
-export default function Login({ searchParams }) {
+export default function Login({}) {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     const redirectUnauthorized = async () => {
       const token = await getTokenFromCookie();
-      console.log(
-        token,
-        !token,
-        await searchParams.redirect,
-        searchParams.redirect !== "true"
-      );
 
-      if (!token && (await searchParams.redirect) !== "true") {
+      const redirect = searchParams.get("redirect");
+
+      if (!token && redirect !== "true") {
         router.push("/");
       }
     };
