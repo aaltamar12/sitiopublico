@@ -58,7 +58,7 @@ export default function StartUp({ inter, provider, children }) {
               size="lg"
               fullWidth="true"
               text="Comenzar"
-              url="/login"
+              redirectTo="/login"
             />
             <div className="p-2">
               <Link href={"#"}>

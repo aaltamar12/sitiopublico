@@ -1,6 +1,6 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { Button } from "@nextui-org/react";
-import Link from "next/link";
 
 export default function CustomButton({
   className,
@@ -8,10 +8,12 @@ export default function CustomButton({
   size,
   fullWidth,
   text,
-  url,
   style,
   onPressExecute,
+  redirectTo,
 }) {
+  const router = useRouter();
+
   return (
     <Button
       className={className}
@@ -21,9 +23,10 @@ export default function CustomButton({
       style={style}
       onClick={() => {
         onPressExecute && onPressExecute();
+        redirectTo && router.push(redirectTo);
       }}
     >
-      <Link href={url}>{text}</Link>
+      {text}
     </Button>
   );
 }
