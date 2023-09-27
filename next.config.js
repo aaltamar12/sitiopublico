@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+require("dotenv").config();
 
 const nextConfig = {
   output: "export",
@@ -9,7 +10,7 @@ const nextConfig = {
   reactStrictMode: true,
   distDir: "out",
   env: {
-    BACKEND_URL: "http://localhost:3001",
+    BACKEND_URL: process.env.BACKEND_URL,
   },
 };
 
