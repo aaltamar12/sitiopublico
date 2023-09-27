@@ -39,11 +39,7 @@ export default function Index({ children }) {
   if (isLoading) {
     contentToRender = <Skeleton className="flex h-screen w-screen" />;
   } else if (!isLoading && !isLogged) {
-    contentToRender = (
-      <StartUp inter={inter} providers={Providers}>
-        {children}
-      </StartUp>
-    );
+    contentToRender = <StartUp>{children}</StartUp>;
   } else if (isLogged) {
     contentToRender = (
       <HomePage isLogged={isLogged} setIsLogged={setIsLogged} />

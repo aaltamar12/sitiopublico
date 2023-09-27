@@ -12,7 +12,7 @@ const kanit200 = Kanit({ weight: "200", subsets: ["latin"] });
 const kanit500 = Kanit({ weight: "500", subsets: ["latin"] });
 const kanit800 = Kanit({ weight: "800", subsets: ["latin"] });
 
-export default function StartUp({ inter, provider, children }) {
+export default function StartUp({ children }) {
   return (
     <div className="absolute inset-0 flex items-center justify-center bg-gray-600">
       <div className={`absolute inset-0 ${style.backgroundAdMedia}`}>
@@ -58,7 +58,7 @@ export default function StartUp({ inter, provider, children }) {
               size="lg"
               fullWidth="true"
               text="Comenzar"
-              redirectTo="/login"
+              redirectTo="/login?redirect=true"
             />
             <div className="p-2">
               <Link href={"#"}>

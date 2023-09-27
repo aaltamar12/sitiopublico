@@ -1,4 +1,5 @@
 "use client";
+import "../globals.css";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { Checkbox } from "@nextui-org/react";
@@ -17,17 +18,18 @@ import passwordIcon from "../components/svg/password.svg";
 const poppins700 = Poppins({ weight: "700", subsets: ["latin"] });
 const poppins400 = Poppins({ weight: "400", subsets: ["latin"] });
 
-export default function Login({}) {
+export default function Login({ searchParams }) {
   const router = useRouter();
 
   useEffect(() => {
     const redirectUnauthorized = async () => {
       const token = await getTokenFromCookie();
-      if (token) {
-        console.log("ACA");
-        router.replace("/");
+
+      if (!token && !searchParams.redirect) {
+        router.push("/");
       }
     };
+
     redirectUnauthorized();
   }, [router]);
 
