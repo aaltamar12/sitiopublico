@@ -25,7 +25,7 @@ export default function Login({ searchParams }) {
     const redirectUnauthorized = async () => {
       const token = await getTokenFromCookie();
 
-      if (!token && !searchParams.redirect) {
+      if (!token && searchParams.redirect === "true") {
         router.push("/");
       }
     };
