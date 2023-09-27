@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  output: "standalone",
+  output: "",
   experimental: {
     appDir: true,
     serverActions: true,
