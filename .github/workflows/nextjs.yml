@@ -29,6 +29,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup ENV
+        shell: bash
+        env:
+          BACKEND_URL: ${{secrets.BACKEND_URL}}
+        run: |
+          example-command "%BACKEND_URL%"
       - name: Checkout
         uses: actions/checkout@v3
       - name: Detect package manager
