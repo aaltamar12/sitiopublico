@@ -1,18 +1,16 @@
-"use server";
-import { cookies } from "next/headers";
+import { setCookie, getCookie, deleteCookie } from "cookies-next";
 
-async function setCookie(name, value, path) {
-  cookies().set(name, value);
+async function setCookieNext(name, value, path) {
+  setCookie(name, value);
 }
 
-export async function getCookie(name) {
-  const cookieStore = cookies();
-  const cookie = cookieStore.get(name);
+export async function getCookieNext(name) {
+  const cookie = getCookie(name);
   return cookie;
 }
 
-export async function deleteCookie(name) {
-  cookies().delete(name);
+export async function deleteCookieNext(name) {
+  deleteCookie(name);
 }
 
 export async function loginApi(username, password) {

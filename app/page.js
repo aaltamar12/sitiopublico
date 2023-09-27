@@ -3,7 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { useEffect, useState } from "react";
 import { Providers } from "./providers";
-import { getCookie } from "./helpers/apiHelper";
+import { getCookieNext } from "./helpers/apiHelper";
 import { Skeleton } from "@nextui-org/react";
 import StartUp from "./startup/page";
 import HomePage from "./homePage/page";
@@ -20,7 +20,7 @@ export default function Index({ children }) {
   const [isLogged, setIsLogged] = useState(false);
 
   const getToken = async () => {
-    const token = await getCookie("token");
+    const token = await getCookieNext("token");
     if (token) {
       setIsLoading(false);
       setIsLogged(true);

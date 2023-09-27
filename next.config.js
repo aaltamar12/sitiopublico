@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  output: "",
+  output: "export",
   experimental: {
     appDir: true,
-    serverActions: true,
+    serverActions: false,
   },
   reactStrictMode: true,
   distDir: "out",

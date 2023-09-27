@@ -1,8 +1,8 @@
 "use client";
-import { getCookie } from "./apiHelper";
+import { getCookieNext } from "./apiHelper";
 
 export async function getTokenFromCookie(callback) {
-  const token = await getCookie("token");
+  const token = await getCookieNext("token");
   if (token) {
     return token;
   }
