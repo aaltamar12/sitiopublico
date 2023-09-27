@@ -27,11 +27,11 @@ export default function Login({ searchParams }) {
       console.log(
         token,
         !token,
-        searchParams.redirect,
+        await searchParams.redirect,
         searchParams.redirect !== "true"
       );
 
-      if (!token && searchParams.redirect !== "true") {
+      if (!token && (await searchParams.redirect) !== "true") {
         router.push("/");
       }
     };
