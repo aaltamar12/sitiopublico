@@ -61,7 +61,7 @@ export default function StartUp({ children }) {
               redirectTo="/login?redirect=true"
             />
             <div className="p-2">
-              <Link href={"#"}>
+              <Link href={"/register"}>
                 <small className={`text-white ${kanit500.className} underline`}>
                   ¿Eres nuevo? Registrate
                 </small>
