@@ -103,7 +103,6 @@ export default function Login({}) {
               ...formLogin,
               password: await encryptData(value),
             });
-            console.log(formLogin);
           }}
           icon={passwordIcon}
           alt="Password icon"
