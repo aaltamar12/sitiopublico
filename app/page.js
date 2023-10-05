@@ -15,33 +15,17 @@ import HomePage from "./homePage/page";
 
 export default function Index({ children }) {
   const [isLoading, setIsLoading] = useState(true);
-  const [isLogged, setIsLogged] = useState(false);
-
-  const getToken = async () => {
-    const token = await getCookieNext("token");
-    if (token) {
-      setIsLoading(false);
-      setIsLogged(true);
-    }
-  };
 
   useEffect(() => {
-    getToken();
-    if (!isLogged) {
-      setIsLoading(false);
-    }
-  }, [isLogged]);
+    setIsLoading(false);
+  }, []);
 
   let contentToRender;
 
   if (isLoading) {
     contentToRender = <Skeleton className="flex h-screen w-screen" />;
-  } else if (!isLoading && !isLogged) {
+  } else if (!isLoading) {
     contentToRender = <StartUp>{children}</StartUp>;
-  } else if (isLogged) {
-    contentToRender = (
-      <HomePage isLogged={isLogged} setIsLogged={setIsLogged} />
-    );
   }
 
   return contentToRender;

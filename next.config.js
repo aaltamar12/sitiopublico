@@ -7,6 +7,7 @@ const nextConfig = {
     appDir: true,
     serverActions: false,
   },
+  images: { unoptimized: true },
   reactStrictMode: true,
   distDir: "out",
   env: {

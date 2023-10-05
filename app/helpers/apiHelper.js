@@ -1,18 +1,3 @@
-import { setCookie, getCookie, deleteCookie } from "cookies-next";
-
-async function setCookieNext(name, value, path) {
-  setCookie(name, value);
-}
-
-export async function getCookieNext(name) {
-  const cookie = getCookie(name);
-  return cookie;
-}
-
-export async function deleteCookieNext(name) {
-  deleteCookie(name);
-}
-
 export async function loginApi(username, password) {
   const requestOptions = {
     method: "POST",
