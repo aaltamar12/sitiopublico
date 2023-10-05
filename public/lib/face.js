@@ -1,5 +1,5 @@
 import * as faceapi from "face-api.js";
-const MODEL_URL = "./public/models/";
+const MODEL_URL = "http://localhost:3000/public/models/";
 
 const people = [
   { name: "Alfonso", imageUrl: "/images/alfonso.jpg" },
