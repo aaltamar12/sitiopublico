@@ -15,6 +15,7 @@ import { loginApi } from "../helpers/apiHelper";
 import LogoIcon from "../components/svg/logo.svg";
 import emailIcon from "../components/svg/email.svg";
 import passwordIcon from "../components/svg/password.svg";
+import Link from "next/link";
 
 const poppins700 = Poppins({ weight: "700", subsets: ["latin"] });
 const poppins400 = Poppins({ weight: "400", subsets: ["latin"] });
@@ -117,11 +118,11 @@ export default function Login({}) {
         </div>
 
         <div className="container text-end text-blue-600">
-          <small>Forgot password?</small>
+          <small>Olvidaste tu contraseña?</small>
         </div>
       </div>
 
-      <div>
+      <div className="pb-[20px]">
         <CustomButton
           className={`text-xl text-white h-14 bg-gradient-to-r from-blue-600 to-indigo-500`}
           size="lg"
@@ -133,6 +134,42 @@ export default function Login({}) {
             await login();
           }}
         />
+      </div>
+
+      <div className="flex justify-between text-center pb-3">
+        <div className="w-1/4 sm:w-full lg:w-full flex items-center text-center justify-center ">
+          <div
+            style={{
+              width: "100%",
+              height: 0,
+              borderTop: "0.66px #E1E1E1 solid",
+            }}
+          ></div>
+        </div>
+
+        <div className="w-full text-center text-gray-400 text-xs tracking-tight">
+          <h1 className="text-medium">¿Aun no tienes cuenta?</h1>
+        </div>
+
+        <div className="w-1/4 sm:w-full lg:w-full items-center text-center justify-center flex">
+          <div
+            style={{
+              width: "100%",
+              height: 0,
+              borderTop: "0.66px #E1E1E1 solid",
+            }}
+          ></div>
+        </div>
+      </div>
+
+      <div className="text-center">
+        <h1
+          className={
+            "text-blue-600 text-sm font-semibold leading-none tracking-tight"
+          }
+        >
+          <Link href={"/register"}>Registrate ahora</Link>
+        </h1>
       </div>
     </div>
   );

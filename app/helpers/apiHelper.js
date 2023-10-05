@@ -39,21 +39,25 @@ export async function loginApi(username, password) {
 }
 
 export async function fetchApi(method, body, url, token) {
-  const authorization = token ? { Authorization: `Bearer ${token}` } : "";
+  try {
+    const authorization = token ? { Authorization: `Bearer ${token}` } : "";
 
-  const requestOptions = {
-    method: method,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  };
+    const requestOptions = {
+      method: method,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    };
 
-  const res = await fetch(process.env.BACKEND_URL + url, requestOptions);
+    const res = await fetch(process.env.BACKEND_URL + url, requestOptions);
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return await res.json();
+  } catch (error) {
+    throw error;
   }
-
-  return await res.json();
 }

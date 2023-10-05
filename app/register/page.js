@@ -37,12 +37,14 @@ export default function Login({}) {
     password: "",
   });
 
-  console.log(formRegister);
-
   const register = async () => {
-    const response = await fetchApi("POST", formRegister, "/register");
-    if (response.status === 200) {
-      router.push("/");
+    try {
+      const response = await fetchApi("POST", formRegister, "/api/auth/signup");
+      if (response.status === 200) {
+        router.push("/");
+      }
+    } catch (error) {
+      alert(error.message);
     }
   };
 
